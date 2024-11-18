@@ -2,40 +2,170 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>САНЯ PLAY PRO MAX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK SANYA BLOG</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Modak&family=Moirai+One&display=swap');
 
+        /* Общие стили */
         ::selection {
             color: black;
             background-color: white;
+        }
+        * {
+            cursor: none;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: black; /* Начальный цвет - тёмный */
+            background-color: #1C1C1C;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: black;
-
-            /* Начальное состояние для fade-in */
-            animation: fadeInBackground 1s ease-in-out forwards;
+            overflow: hidden;
         }
 
-        @keyframes fadeInBackground {
+        .whitepage {
+            width: 100%;
+            height: 100%;
+            background-color: aliceblue;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
             from {
-                background-color: black; /* Тёмный цвет */
+                opacity: 0;
+                transform: scale(0.95);
             }
             to {
-                background-color: aliceblue; /* Светлый цвет */
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .texth {
+            font-family: "Modak", sans-serif;
+            font-size: 6rem;
+            color: black;
+            text-align: center;
+        }
+
+        .text-desc-th {
+            font-family: "Moirai One", sans-serif;
+            font-size: 2rem;
+            color: gray;
+            margin-top: -20px;
+            text-align: center;
+        }
+
+        .go-btn {
+            margin-top: 20px;
+            width: 200px;
+            height: 50px;
+            background-color: rgba(240, 248, 255, 0.1);
+            border: 2px solid black;
+            font-size: 1rem;
+            border-radius: 10px;
+            font-family: "Bagel Fat One", sans-serif;
+            color: black;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .go-btn:hover {
+            background-color: black;
+            color: aliceblue;
+            transform: scale(1.1);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            background-color: #282828;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 90%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .profile img {
+            height: 200px;
+            width: auto;
+            object-fit: cover;
+        }
+
+        .profile-text {
+            padding: 20px;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+
+        .custom-cursor {
+            position: absolute;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            background-color: black;
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: cursorAnimation 800ms infinite alternate ease-in-out;
+        }
+
+        @keyframes cursorAnimation {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.5);
             }
         }
     </style>
 </head>
 <body>
-<h1>Добро пожаловать в САНЯ PLAY PRO MAX!</h1>
+<div class="custom-cursor"></div>
+<div class="whitepage">
+    <div class="texth">BLACK SANYA</div>
+    <div class="text-desc-th">Welcome to my blog!</div>
+    <div class="profile">
+        <img src="sanya.png" alt="Sanya">
+        <div class="profile-text">
+            <p><strong>Hi, I am Sanya!</strong> I’m a professional stewardess and an adventurer at heart. I explore life boldly and have a lot of fun stories to share with you. Stay tuned!</p>
+        </div>
+    </div>
+    <a href="main.html"><button class="go-btn">Go!</button></a>
+</div>
+
+<script>
+    const cursor = document.querySelector(".custom-cursor");
+    const goBtn = document.querySelector(".go-btn");
+
+    // Кастомный курсор
+    window.addEventListener("mousemove", (event) => {
+        cursor.style.left = `${event.pageX}px`;
+        cursor.style.top = `${event.pageY}px`;
+    });
+
+    // Анимация кнопки
+    goBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector(".whitepage").classList.add("fade-out");
+        setTimeout(() => {
+            window.location.href = "main.html";
+        }, 1000);
+    });
+</script>
 </body>
 </html>
