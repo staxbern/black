@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>САНЯ PLAY PRO MAX</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Modak&family=Moirai+One&display=swap');
+
+        ::selection {
+            color: black;
+            background-color: white;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black; /* Начальный цвет - тёмный */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: black;
+
+            /* Начальное состояние для fade-in */
+            animation: fadeInBackground 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeInBackground {
+            from {
+                background-color: black; /* Тёмный цвет */
+            }
+            to {
+                background-color: aliceblue; /* Светлый цвет */
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Добро пожаловать в САНЯ PLAY PRO MAX!</h1>
+</body>
+</html>
